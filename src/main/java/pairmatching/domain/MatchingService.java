@@ -22,6 +22,7 @@ public class MatchingService {
         mission = information.get(2);
         crewNames = Crews.getNamesOf(course);
         shuffledCrew = Randoms.shuffle(crewNames);
+        matching();
     }
 
     private void matching() {
