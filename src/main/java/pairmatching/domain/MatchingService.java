@@ -26,7 +26,7 @@ public class MatchingService {
     }
 
     private void matching() {
-        for (int i = 0; i < shuffledCrew.size() - 1; i++) {
+        for (int i = 0; i < shuffledCrew.size() - 1; i += 2) {
             if (shuffledCrew.size() % 2 != 0 && i == (shuffledCrew.size() - 3)) {
                 matchingResult.add(Arrays.asList(
                         shuffledCrew.get(i),
