@@ -1,6 +1,6 @@
 package pairmatching.constant.information;
 
-import pairmatching.constant.Command;
+import pairmatching.constant.ErrorMessage;
 
 public enum Course {
 
@@ -24,11 +24,9 @@ public enum Course {
         return input;
     }
 
-    private static void validate(String input) {
-        for (int i = 0; i < Course.values().length; i++) {
-            if (!input.equals(Command.values()[i].name())) {
-                throw new IllegalArgumentException();
-            }
+    public static void validate(String input) {
+        if (!input.equals(Course.BACK_END.name) && !input.equals(Course.FRONT_END.name)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_COURSE.toString());
         }
     }
 

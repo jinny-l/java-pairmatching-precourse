@@ -3,6 +3,7 @@ package pairmatching.constant.information;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import pairmatching.constant.ErrorMessage;
 
 public enum Level {
 
@@ -30,6 +31,26 @@ public enum Level {
 
     public List<String> getMissions() {
         return missions;
+    }
+
+    public static void validate(String level, String mission) {
+        validateLevel(level);
+        validateMission(mission);
+    }
+
+    private static void validateLevel(String level) {
+        if (!level.equals(LEVEL1.name) && !level.equals(LEVEL2.name) && !level.equals(LEVEL3.name)
+                && !level.equals(LEVEL4.name) && !level.equals(LEVEL5.name)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_LEVEL.toString());
+        }
+    }
+
+    private static void validateMission(String mission) {
+        if (!LEVEL1.missions.contains(mission) && !LEVEL2.missions.contains(mission)
+                && !LEVEL3.missions.contains(mission) && !LEVEL4.missions.contains(mission)
+                && !LEVEL5.missions.contains(mission)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_MISSION.toString());
+        }
     }
 
     @Override

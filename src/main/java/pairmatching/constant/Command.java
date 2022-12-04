@@ -33,7 +33,7 @@ public enum Command {
     private static void validate(String input) {
         if (!input.equals(PAIR_MATCHING.command) && !input.equals(PAIR_SEARCHING.command)
                 && !input.equals(RESET.command) && !input.equals(QUIT.command)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_COMMAND.toString());
         }
     }
 

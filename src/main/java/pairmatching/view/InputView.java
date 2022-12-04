@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import pairmatching.constant.Command;
+import pairmatching.constant.ErrorMessage;
 import pairmatching.constant.information.Course;
 import pairmatching.constant.information.Level;
 
@@ -25,6 +26,14 @@ public class InputView {
     }
 
     public static List<String> readInformation() {
+        printExample();
+        String input = readLine();
+        List<String> information = Stream.of(input.split("\\s*" + INFORMATION_DELIMITER + "\\s*"))
+                .collect(Collectors.toList());
+        return information;
+    }
+
+    private static void printExample() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(Course.values()[0].getName())
                 .append(INFORMATION_DELIMITER)
@@ -32,9 +41,6 @@ public class InputView {
                 .append(INFORMATION_DELIMITER)
                 .append(Level.values()[0].getMissions().get(0));
         System.out.printf(INPUT_INFORMATION, stringBuilder);
-        String input = readLine();
-        return Stream.of(input.split("\\s*" + INFORMATION_DELIMITER + "\\s*"))
-                .collect(Collectors.toList());
     }
 
     private static String readLine() {
@@ -45,7 +51,7 @@ public class InputView {
 
     private static void validateHasInput(String input) {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString());
         }
     }
 
