@@ -16,11 +16,12 @@ public class Controller {
     private String command;;
 
     public void run() {
+        readCommand();
         do {
-            readCommand();
             OutputView.printInformation();
             readInformation();
             printMatchingResult();
+            readCommand();
         } while (!command.equals(Command.QUIT.getCommand()));
     }
 
