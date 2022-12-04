@@ -5,16 +5,17 @@ import pairmatching.constant.ErrorMessage;
 import pairmatching.constant.information.Course;
 import pairmatching.constant.information.Level;
 
-public class Information {
+public class MatchingInformation {
 
     private static final int SIZE = 3;
 
     private final List<String> information;
 
-    public Information(List<String> information) {
+    public MatchingInformation(List<String> information) {
         validateSize(information);
         Course.validate(information.get(0));
         Level.validate(information.get(1), information.get(2));
+        MatchingInformationRepository.add(information);
         this.information = information;
     }
 

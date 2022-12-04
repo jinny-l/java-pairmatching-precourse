@@ -25,12 +25,11 @@ public class InputView {
         return Command.from(readLine());
     }
 
-    public static List<String> readInformation() {
+    public static List<String> readMatchingInformation() {
         printExample();
         String input = readLine();
-        List<String> information = Stream.of(input.split("\\s*" + INFORMATION_DELIMITER + "\\s*"))
+        return Stream.of(input.split("\\s*" + INFORMATION_DELIMITER + "\\s*"))
                 .collect(Collectors.toList());
-        return information;
     }
 
     private static void printExample() {
