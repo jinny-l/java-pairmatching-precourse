@@ -3,7 +3,7 @@ package pairmatching.constant.command;
 import java.util.stream.Stream;
 import pairmatching.constant.message.ErrorMessage;
 
-public enum Command {
+public enum MainCommand {
 
     PAIR_MATCHING("페어 매칭", "1"),
     PAIR_SEARCHING("페어 조회", "2"),
@@ -15,7 +15,7 @@ public enum Command {
     private final String text;
     private final String command;
 
-    Command(String text, String command) {
+    MainCommand(String text, String command) {
         this.text = text;
         this.command = command;
     }
@@ -28,7 +28,7 @@ public enum Command {
         return command;
     }
 
-    public static Command from(String input) {
+    public static MainCommand from(String input) {
         return Stream.of(values())
                 .filter(command -> command.command.equals(input))
                 .findAny()
