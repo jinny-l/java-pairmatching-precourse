@@ -2,18 +2,19 @@ package pairmatching.constant.message;
 
 import pairmatching.constant.command.ReMatchCommand;
 import pairmatching.constant.information.Course;
-import pairmatching.constant.information.Mission;
+import pairmatching.constant.information.Level;
+import pairmatching.repository.MissionsRepository;
 
 public enum SystemMessage {
 
     INPUT_COMMAND("기능을 선택하세요."),
     INPUT_INFORMATION("과정, 레벨, 미션을 선택하세요."),
-    INPUT_INFORMATION_EXAMPLE("ex) " + String.join(",",
+    INPUT_INFORMATION_EXAMPLE("ex) " + String.join(", ",
             Course.values()[0].getName(),
-            Mission.values()[0].getLevel(),
-            Mission.values()[0].getMissions().get(0))),
+            Level.LEVEL1.getText(),
+            MissionsRepository.missionsOf(Level.LEVEL1).get(0))),
     INPUT_REMATCH_COMMAND("매칭 정보가 있습니다. 다시 매칭하시겠습니까?"),
-    INPUT_REMATCH_COMMAND_EXAMPLE(String.join("|", ReMatchCommand.YES.getText(), ReMatchCommand.NO.getText())),
+    INPUT_REMATCH_COMMAND_EXAMPLE(String.join(" | ", ReMatchCommand.YES.getText(), ReMatchCommand.NO.getText())),
     OUTPUT_COURSE("과정: "),
     OUTPUT_MISSION("미션: ");
 
