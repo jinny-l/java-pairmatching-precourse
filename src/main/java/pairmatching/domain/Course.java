@@ -1,4 +1,4 @@
-package pairmatching.constant.information;
+package pairmatching.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
