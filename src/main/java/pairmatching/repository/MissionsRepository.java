@@ -27,4 +27,8 @@ public class MissionsRepository {
                 .getMissions();
     }
 
+    public static boolean hasMission(Level level, String mission) {
+        return missionsOf(level).contains(mission);
+    }
+
 }
