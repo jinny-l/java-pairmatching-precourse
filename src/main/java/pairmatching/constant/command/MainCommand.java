@@ -39,8 +39,7 @@ public enum MainCommand {
     public String toString() {
         return command
                 + FIELD_DELIMITER
-                + text
-                + "\n";
+                + text;
     }
 
 }

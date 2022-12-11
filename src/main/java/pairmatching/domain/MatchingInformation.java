@@ -16,8 +16,8 @@ public class MatchingInformation {
         validateSize(matchingInformation);
         course = Course.from(matchingInformation.get(0));
         level = Level.from(matchingInformation.get(1));
-        validateMission(level, matchingInformation.get(1));
-        mission = matchingInformation.get(1);
+        validateMission(level, matchingInformation.get(2));
+        mission = matchingInformation.get(2);
     }
 
     public Course getCourse() {

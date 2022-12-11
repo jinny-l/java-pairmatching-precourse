@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import pairmatching.constant.command.Command;
+import pairmatching.constant.command.MainCommand;
 import pairmatching.constant.command.ReMatchCommand;
 import pairmatching.constant.message.ErrorMessage;
 import pairmatching.constant.message.SystemMessage;
@@ -13,10 +13,10 @@ public class InputView {
 
     private static final String INFORMATION_DELIMITER = ", ";
 
-    public static Command readCommand() {
+    public static MainCommand readCommand() {
         System.out.println(SystemMessage.INPUT_COMMAND);
         OutputView.printCommand();
-        return Command.from(readLine());
+        return MainCommand.from(readLine());
     }
 
     public static List<String> readInformation() {
