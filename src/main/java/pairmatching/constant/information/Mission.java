@@ -42,7 +42,14 @@ public enum Mission {
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_LEVEL.toString()));
     }
 
-    public static boolean hasMission(Mission level, String input) {
+    public static String missionFrom(Mission level, String mission) {
+        if (!hasMission(level, mission)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_MISSION.toString());
+        }
+        return mission;
+    }
+
+    private static boolean hasMission(Mission level, String input) {
         return level.getMissions().contains(input);
     }
 
