@@ -1,4 +1,4 @@
-package pairmatching.constant;
+package pairmatching.constant.command;
 
 import java.util.stream.Stream;
 import pairmatching.constant.message.ErrorMessage;

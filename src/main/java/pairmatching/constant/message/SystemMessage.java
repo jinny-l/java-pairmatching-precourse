@@ -1,5 +1,6 @@
 package pairmatching.constant.message;
 
+import pairmatching.constant.command.ReMatchCommand;
 import pairmatching.constant.information.Course;
 import pairmatching.constant.information.Mission;
 
@@ -11,6 +12,8 @@ public enum SystemMessage {
             Course.values()[0].getName(),
             Mission.values()[0].getLevel(),
             Mission.values()[0].getMissions().get(0))),
+    INPUT_REMATCH_COMMAND("매칭 정보가 있습니다. 다시 매칭하시겠습니까?"),
+    INPUT_REMATCH_COMMAND_EXAMPLE(String.join("|", ReMatchCommand.YES.getText(), ReMatchCommand.NO.getText())),
     OUTPUT_COURSE("과정: "),
     OUTPUT_MISSION("미션: ");
 

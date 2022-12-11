@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import pairmatching.constant.Command;
+import pairmatching.constant.command.Command;
+import pairmatching.constant.command.ReMatchCommand;
 import pairmatching.constant.message.ErrorMessage;
 import pairmatching.constant.message.SystemMessage;
 
@@ -23,6 +24,12 @@ public class InputView {
         System.out.println(SystemMessage.INPUT_INFORMATION_EXAMPLE);
         return Stream.of(readLine().split("\\s*" + INFORMATION_DELIMITER + "\\s*"))
                 .collect(Collectors.toList());
+    }
+
+    public static ReMatchCommand readRematchCommand() {
+        System.out.println(SystemMessage.INPUT_REMATCH_COMMAND);
+        System.out.println(SystemMessage.INPUT_REMATCH_COMMAND_EXAMPLE);
+        return ReMatchCommand.from(readLine());
     }
 
     private static String readLine() {
