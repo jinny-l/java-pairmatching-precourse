@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import pairmatching.constant.information.Level;
+import pairmatching.domain.Level;
 import pairmatching.domain.Missions;
 
 public class MissionsRepository {
@@ -17,6 +17,10 @@ public class MissionsRepository {
         missions.add(new Missions(Level.LEVEL3, Collections.emptyList()));
         missions.add(new Missions(Level.LEVEL4, Arrays.asList("성능개선", "배포")));
         missions.add(new Missions(Level.LEVEL5, Collections.emptyList()));
+    }
+
+    public static List<Missions> missions() {
+        return Collections.unmodifiableList(missions);
     }
 
     public static List<String> missionsOf(Level level) {
