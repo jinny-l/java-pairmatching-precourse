@@ -1,11 +1,10 @@
 package pairmatching.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import pairmatching.constant.command.MainCommand;
-import pairmatching.constant.information.Course;
 import pairmatching.constant.message.SystemMessage;
+import pairmatching.domain.Course;
 import pairmatching.domain.Missions;
 import pairmatching.repository.MissionsRepository;
 
@@ -13,15 +12,18 @@ public class OutputView {
 
     private static final String DASH = "  - ";
     private static final String COLON = ": ";
+    private static final String PAIR_DELIMITER = " : ";
     private static final String MISSION_DELIMITER = " | ";
     private static final String COURSE_DELIMITER = " | ";
     private static final String INFORMATION_DELIMITER = "############################################";
 
+    public static void printError(String message) {
+        System.out.println(message);
+    }
+
     public static void printCommand() {
-        List<String> command = Stream.of(MainCommand.values())
-                .map(MainCommand::toString)
-                .collect(Collectors.toList());
-        System.out.println(String.join("\n", command));
+        Stream.of(MainCommand.values())
+                .forEach(mainCommand -> System.out.println(mainCommand.toString()));
     }
 
     public static void printInformation() {
@@ -55,8 +57,19 @@ public class OutputView {
         return stringBuilder.toString();
     }
 
-    public static void printMatchingResult() {
+    public static void printMatchingResult(List<List<String>> pairs) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (List<String> pair : pairs) {
+            stringBuilder.append(String.join(PAIR_DELIMITER, pair))
+                    .append("\n");
+        }
+        System.out.println(stringBuilder);
+    }
 
+    public static void printReset() {
+        System.out.println();
+        System.out.println(SystemMessage.OUTPUT_RESET);
+        System.out.println();
     }
 
 }

@@ -6,7 +6,7 @@ import pairmatching.constant.message.ErrorMessage;
 public enum MainCommand {
 
     PAIR_MATCHING("페어 매칭", "1"),
-    PAIR_SEARCHING("페어 조회", "2"),
+    PAIR_VIEW("페어 조회", "2"),
     RESET("페어 초기화", "3"),
     QUIT("종료", "Q");
 

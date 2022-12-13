@@ -16,7 +16,8 @@ public enum SystemMessage {
     INPUT_REMATCH_COMMAND("매칭 정보가 있습니다. 다시 매칭하시겠습니까?"),
     INPUT_REMATCH_COMMAND_EXAMPLE(String.join(" | ", ReMatchCommand.YES.getText(), ReMatchCommand.NO.getText())),
     OUTPUT_COURSE("과정: "),
-    OUTPUT_MISSION("미션: ");
+    OUTPUT_MISSION("미션: "),
+    OUTPUT_RESET("초기화 되었습니다.");
 
     private final String message;
 
