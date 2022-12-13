@@ -9,6 +9,7 @@ public class MatchingInformation {
     private static final int COURSE_INDEX = 0;
     private static final int LEVEL_INDEX = 1;
     private static final int MISSION_INDEX = 2;
+    private static final int INFORMATION_SIZE = 3;
 
     private final Course course;
     private final Level level;
@@ -25,8 +26,16 @@ public class MatchingInformation {
         return course;
     }
 
+    public Level getLevel() {
+        return level;
+    }
+
+    public String getMission() {
+        return mission;
+    }
+
     private void validateSize(List<String> matchingInformation) {
-        if (matchingInformation.size() != MatchingInformation.class.getDeclaredFields().length) {
+        if (matchingInformation.size() != INFORMATION_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_INFORMATION.toString());
         }
     }
