@@ -3,7 +3,7 @@ package pairmatching.repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import pairmatching.constant.information.Course;
+import pairmatching.domain.Course;
 import pairmatching.domain.Crew;
 import pairmatching.util.CrewFileReader;
 
