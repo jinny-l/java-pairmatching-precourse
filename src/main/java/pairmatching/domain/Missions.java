@@ -1,7 +1,6 @@
 package pairmatching.domain;
 
 import java.util.List;
-import pairmatching.constant.information.Level;
 
 public class Missions {
 

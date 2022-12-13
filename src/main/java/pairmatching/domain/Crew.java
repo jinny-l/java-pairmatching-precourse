@@ -1,7 +1,5 @@
 package pairmatching.domain;
 
-import pairmatching.constant.information.Course;
-
 public class Crew {
 
     private final Course course;

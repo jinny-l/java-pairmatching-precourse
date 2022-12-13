@@ -1,12 +1,14 @@
 package pairmatching.domain;
 
 import java.util.List;
-import pairmatching.constant.information.Course;
-import pairmatching.constant.information.Level;
 import pairmatching.constant.message.ErrorMessage;
 import pairmatching.repository.MissionsRepository;
 
 public class MatchingInformation {
+
+    private static final int COURSE_INDEX = 0;
+    private static final int LEVEL_INDEX = 1;
+    private static final int MISSION_INDEX = 2;
 
     private final Course course;
     private final Level level;
@@ -14,10 +16,9 @@ public class MatchingInformation {
 
     public MatchingInformation(List<String> matchingInformation) {
         validateSize(matchingInformation);
-        course = Course.from(matchingInformation.get(0));
-        level = Level.from(matchingInformation.get(1));
-        validateMission(level, matchingInformation.get(2));
-        mission = matchingInformation.get(2);
+        course = Course.from(matchingInformation.get(COURSE_INDEX));
+        level = Level.from(matchingInformation.get(LEVEL_INDEX));
+        mission = validateMission(level, matchingInformation.get(MISSION_INDEX));
     }
 
     public Course getCourse() {
@@ -30,10 +31,11 @@ public class MatchingInformation {
         }
     }
 
-    private void validateMission(Level level, String mission) {
+    private String validateMission(Level level, String mission) {
         if (!MissionsRepository.hasMission(level, mission)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MISSION.toString());
         }
+        return mission;
     }
 
 }

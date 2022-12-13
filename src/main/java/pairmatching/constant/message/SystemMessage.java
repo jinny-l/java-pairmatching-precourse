@@ -1,8 +1,8 @@
 package pairmatching.constant.message;
 
 import pairmatching.constant.command.ReMatchCommand;
-import pairmatching.constant.information.Course;
-import pairmatching.constant.information.Level;
+import pairmatching.domain.Course;
+import pairmatching.domain.Level;
 import pairmatching.repository.MissionsRepository;
 
 public enum SystemMessage {
