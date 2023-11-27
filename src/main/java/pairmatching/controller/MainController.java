@@ -7,6 +7,7 @@ import pairmatching.view.OutputView;
 public class MainController {
 
     public void run() {
+        OutputView.printCommand(Command.values());
         Command command = readCommand();
     }
 

@@ -24,4 +24,12 @@ public enum Command {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 기능 명령어 입니다."));
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
