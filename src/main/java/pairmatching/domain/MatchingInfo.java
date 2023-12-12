@@ -16,4 +16,12 @@ public class MatchingInfo {
                 Mission.from(missionName, levelName)
         );
     }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public Mission getMission() {
+        return mission;
+    }
 }

@@ -2,13 +2,15 @@ package pairmatching.controller;
 
 import pairmatching.domain.Course;
 import pairmatching.domain.MatchingInfo;
+import pairmatching.repository.PairRepository;
 import pairmatching.service.MatchingService;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
-public class MatchingController implements Controller {
+public class ViewController implements Controller {
 
     private final MatchingService matchingService = new MatchingService();
+    private final PairRepository pairRepository = new PairRepository();
 
     @Override
     public void run() {
@@ -18,11 +20,14 @@ public class MatchingController implements Controller {
         );
 
         MatchingInfo matchingInfo = readMatchingInfo();
+        boolean isExist = pairRepository.existsMatching(matchingInfo);
 
+        if (!isExist) {
+            System.out.println("[ERROR] 매칭 이력이 없습니다.");
+            return;
+        }
 
-        matchingService.matching(matchingInfo.getCourse(), matchingInfo.getMission());
-
-        OutputView.printPairs(matchingService.getPairs());
+        OutputView.printPairs(matchingService.findPairsBy(matchingInfo));
     }
 
     private MatchingInfo readMatchingInfo() {

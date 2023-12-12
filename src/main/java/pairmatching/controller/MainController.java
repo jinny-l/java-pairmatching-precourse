@@ -8,13 +8,30 @@ public class MainController implements Controller {
 
     @Override
     public void run() {
-        OutputView.printCommand(Command.values());
-        Command command = readCommand();
+        while (true) {
+            OutputView.printCommand(Command.values());
+            Command command = readCommand();
 
-        if (command == Command.MATCHING) {
-            Controller controller = new MatchingController();
-            controller.run();
+            if (command == Command.EXIT) {
+                break;
+            }
+
+            if (command == Command.MATCHING) {
+                Controller controller = new MatchingController();
+                controller.run();
+            }
+
+            if (command == Command.VIEW_PAIR) {
+                Controller controller = new ViewController();
+                controller.run();
+            }
+
+            if (command == Command.RESET_PAIR) {
+                Controller controller = new ResetController();
+                controller.run();
+            }
         }
+
     }
 
     private Command readCommand() {

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import pairmatching.domain.Command;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
+import pairmatching.domain.Pair;
 
 public class OutputView {
 
@@ -62,5 +63,14 @@ public class OutputView {
                 .collect(Collectors.joining(System.lineSeparator()));
 
         return String.format(format, result);
+    }
+
+    public static void printPairs(List<Pair> pairs) {
+        System.out.println();
+        System.out.println("페어 매칭 결과입니다.");
+        System.out.println(pairs.stream()
+                .map(pair -> String.join(" : ", pair.getCrewNames()))
+                .collect(Collectors.joining(System.lineSeparator())));
+        System.out.println();
     }
 }
